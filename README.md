@@ -8,7 +8,7 @@ Create a simple JavaFX UI for program input and verification results
 
 After cloning, go to the root folder and enter these cmd in terminal to bring up the GUI: \
 mvn clean compile\
-mvn javafx:run\
+mvn javafx:run
 
 
 Current Structure :\
