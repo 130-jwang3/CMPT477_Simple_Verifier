@@ -5,33 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e87d8ba-09a2-4d65-8a7c-527e4722e0e0" name="Changes" comment="update git ignore">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SImple_Verifier.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/MainUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/HoareLogic/AssignmentRule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/HoareLogic/CompositionRule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/HoareLogic/ConditionalRule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/HoareLogic/HoareRule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/ProofChecker/ProofChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/ProofChecker/Simplifier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/Syntax/ASTNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/Syntax/Condition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/Syntax/Expression.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/Syntax/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/Syntax/Statement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/VCG/VerificationCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/VCG/VerificationConditionGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verifier/Verifier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/verifier/HoareLogicTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/verifier/ProofCheckerTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/verifier/SyntaxTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/verifier/VCGTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/verifier/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +26,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2onyGihhMZuDWeuZ5gif5NH3e1F" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -67,12 +42,14 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "openjdk-20",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
+    "onboarding.tips.debug.path": "E:/Study/CMPT477/final_project/verifier/src/main/java/com/verifier/Main.java",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
@@ -105,5 +82,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update git ignore" />
     <option name="LAST_COMMIT_MESSAGE" value="update git ignore" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/verifier/src/main/java/com/verifier/Main.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
