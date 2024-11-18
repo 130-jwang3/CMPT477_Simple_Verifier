@@ -4,36 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e87d8ba-09a2-4d65-8a7c-527e4722e0e0" name="Changes" comment="update git ignore">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/verifier/parser/ProgramParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/verifier/ui/MainUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/grammar/Grammar.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8e87d8ba-09a2-4d65-8a7c-527e4722e0e0" name="Changes" comment="Created ProgramParser.java to import the library in Grammar.g4&#10;Updated Main, MainUI and README.md">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/MainUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/HoareLogic/AssignmentRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/AssignmentRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/HoareLogic/CompositionRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/CompositionRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/HoareLogic/ConditionalRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionalRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/HoareLogic/HoareRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/HoareRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/ProofChecker/ProofChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/ProofChecker/ProofChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/ProofChecker/Simplifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/ProofChecker/Simplifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/Syntax/ASTNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/ASTNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/Syntax/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Condition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/Syntax/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Expression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/Syntax/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/Syntax/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Statement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/VCG/VerificationCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/VCG/VerificationConditionGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationConditionGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verifier/Verifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Verifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/verifier/HoareLogicTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/com/verifier/HoareLogicTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/verifier/ProofCheckerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/com/verifier/ProofCheckerTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/verifier/SyntaxTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/com/verifier/SyntaxTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/verifier/VCGTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/com/verifier/VCGTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verifier/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731521795527</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Created ProgramParser.java to import the library in Grammar.g4&#10;Updated Main, MainUI and README.md">
+      <option name="closed" value="true" />
+      <created>1731903538193</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731903538193</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +130,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update git ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="update git ignore" />
+    <MESSAGE value="Created ProgramParser.java to import the library in Grammar.g4&#10;Updated Main, MainUI and README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created ProgramParser.java to import the library in Grammar.g4&#10;Updated Main, MainUI and README.md" />
   </component>
 </project>

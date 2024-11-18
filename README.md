@@ -2,21 +2,22 @@
 
 ### Current Progress ### 
 *Danny*: \
-Basic project structure set up with Maven and JavaFX\
-ANTLR4 grammar implementation for parsing\
-JavaFX UI skeleton for program input and verification results
+Update project structure set up with Maven and JavaFX\
+Implemented ANTLR4 grammar and the program parser\
+Create a simple JavaFX UI for program input and verification results
 
-After cloning, go to the root folder and enter in terminal to bring up the GUI: \
+After cloning, go to the root folder and enter these cmd in terminal to bring up the GUI: \
 mvn clean compile\
-mvn javafx:run
+mvn javafx:run\
+
 
 Current Structure :\
 src/\
 ├── main/\
 │   ├── java/com/verifier/\
 │   │   ├── Main.java\
-│   │   ├── ui/ (*contain MainUI*) \
-│   │   ├── parser/*(contain Parser library)*\
+│   │   ├── ui/ (*contain the JavaFX MainUI*) \
+│   │   ├── parser/*(contain the program parser)*\
 │   │   ├── hoarelogic/\
 │   │   ├── syntax/\
 │   │   └── vcg/\
