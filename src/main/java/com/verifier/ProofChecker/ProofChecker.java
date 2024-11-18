@@ -1,4 +1,4 @@
-package verifier.ProofChecker;
+package com.verifier.ProofChecker;
 
 public class ProofChecker {
     //TODO: check VC for logical corrrectness

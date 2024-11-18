@@ -1,4 +1,4 @@
-package verifier.HoareLogic;
+package com.verifier.HoareLogic;
 
 public class CompositionRule {
     //TODO: implements rule for composition
