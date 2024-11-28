@@ -1,5 +1,11 @@
 package com.verifier.ui;
 
+import com.verifier.ProofChecker.ProofChecker;
+import com.verifier.ProofChecker.Simplifier;
+import com.verifier.Syntax.Parser;
+import com.verifier.VCG.VerificationCondition;
+import com.verifier.VCG.VerificationConditionGenerator;
+import com.verifier.Verifier;
 import com.verifier.parser.ProgramParser;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -8,6 +14,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.antlr.v4.runtime.tree.ParseTree;
+
+import java.util.List;
 
 public class MainUI extends Application {
     private TextArea programInput;
@@ -60,15 +68,13 @@ public class MainUI extends Application {
             return;
         }
 
-        try {
-            ParseTree tree = ProgramParser.parse(program);
-            outputArea.setText("Program parsed successfully!\n\n" +
-                    "Parse Tree Structure:\n" +
-                    ProgramParser.getParseTreeText(tree));
-        } catch (Exception e) {
-            showError("Error parsing program: " + e.getMessage());
-        }
+        Verifier verifier = new Verifier();
+        String results = verifier.verify(program);
+        outputArea.setText(results);
     }
+
+
+
 
     private void showError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

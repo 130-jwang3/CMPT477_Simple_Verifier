@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e87d8ba-09a2-4d65-8a7c-527e4722e0e0" name="Changes" comment="Created ProgramParser.java to import the library in Grammar.g4&#10;Updated Main, MainUI and README.md">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Assignment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Conditional.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Sequence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/AssignmentRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/AssignmentRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/CompositionRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/CompositionRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionalRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionalRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/HoareRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/HoareRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/ProofChecker/ProofChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/ProofChecker/ProofChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/ProofChecker/Simplifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/ProofChecker/Simplifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/ASTNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/ASTNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Expression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Syntax/Statement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationConditionGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationConditionGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/parser/ProgramParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/parser/ProgramParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/ui/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/ui/MainUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/grammar/Grammar.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/grammar/Grammar.g4" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,26 +61,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-20&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;E:/Study/CMPT477/final_project/verifier/src/main/java/com/verifier/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "openjdk-20",
+    "last_opened_file_path": "C:/Users/johnw/Documents/SFU/year_5/projects/CMPT477/simple-verifier",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "E:/Study/CMPT477/final_project/verifier/src/main/java/com/verifier/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Study\CMPT477\final_project\src\main\java\com\verifier" />
@@ -94,6 +115,7 @@
       <option name="presentableId" value="Default" />
       <updated>1731519544914</updated>
       <workItem from="1731519545956" duration="2414000" />
+      <workItem from="1732774653885" duration="10982000" />
     </task>
     <task id="LOCAL-00001" summary="update git ignore">
       <option name="closed" value="true" />

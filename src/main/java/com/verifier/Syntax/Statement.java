@@ -1,5 +1,7 @@
 package com.verifier.Syntax;
 
-public class Statement {
-    //TODO: define statement type
-}
+import java.util.List;
+
+// Base class for statements
+public abstract class Statement extends ASTNode {}
+

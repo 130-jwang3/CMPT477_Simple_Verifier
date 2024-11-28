@@ -1,5 +1,6 @@
 package com.verifier.Syntax;
 
-public class ASTNode {
-    //TODO: Abstract Syntax Tree Node definition
+public abstract class ASTNode {
+    public abstract String toString();
 }
+
