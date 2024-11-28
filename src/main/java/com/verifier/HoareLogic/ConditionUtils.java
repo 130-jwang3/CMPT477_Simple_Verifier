@@ -72,5 +72,5 @@ public class ConditionUtils {
             expression = "";
         }
         return condition.replace(variable, "(" + expression + ")");
-    
+    }
 }
