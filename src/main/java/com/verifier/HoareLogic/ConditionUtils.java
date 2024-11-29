@@ -7,6 +7,9 @@ public class ConditionUtils {
     // Example: "x > 0" and "y == 5" → "x > 0 && y == 5"
     public static String strengthen(String condition1, String condition2) {
         // TODO: Combine the two conditions logically with "&&".
+        if ((condition1 == null || condition1.trim().isEmpty()) && (condition2 == null || condition2.trim().isEmpty())) {
+            return "";
+        }
         if (condition1 == null || condition1.trim().isEmpty()) {
             return condition2;
         }
@@ -21,10 +24,16 @@ public class ConditionUtils {
     // Example: "x > 0" or "y == 5" → "x > 0 || y == 5"
     public static String weaken(String condition1, String condition2) {
         // TODO: Combine the two conditions logically with "||".
-        if (condition == null || condition.trim().isEmpty()) {
-            return "true"; // Negating an empty condition is effectively "true".
+        if ((condition1 == null || condition1.trim().isEmpty()) && (condition2 == null || condition2.trim().isEmpty())) {
+            return "";
         }
-        return "!(" + condition + ")";
+        if (condition1 == null || condition1.trim().isEmpty()) {
+            return condition2;
+        }
+        if (condition2 == null || condition2.trim().isEmpty()) {
+            return condition1;
+        }
+        return "(" + condition1 + ") || (" + condition2 + ")";
     }
 
     // TODO: Implement a method to negate a condition.
@@ -50,7 +59,7 @@ public class ConditionUtils {
         // Simplify trivial conditions
         condition = condition.replaceAll("\\btrue &&", "")
                              .replaceAll("&& true\\b", "")
-                             .replaceAll("\\bfalse \\|\\|", "")
+                             .replaceAll("\\bfalse \\|\\|", "") // We use \\|\\| to present ||
                              .replaceAll("\\|\\| false\\b", "");
 
         // Trim redundant parentheses

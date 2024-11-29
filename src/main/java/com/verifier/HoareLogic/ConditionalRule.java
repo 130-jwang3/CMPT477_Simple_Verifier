@@ -1,32 +1,57 @@
 package com.verifier.HoareLogic;
 
+import com.verifier.Syntax.Assignment;
+import com.verifier.Syntax.Conditional;
+import com.verifier.Syntax.Sequence;
 import com.verifier.Syntax.Statement;
 import com.verifier.VCG.VerificationCondition;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class ConditionalRule {
-    public Collection<? extends VerificationCondition> apply(Statement statement, String pre, String post) {
-        return null;
-    }
-    // TODO: Implement the Hoare Logic rule for conditionals (if-then-else).
-    // Requirements:
-    // 1. Accept a Conditional statement and process both the "then" and "else" branches.
-    //
-    // 2. Generate VerificationConditions for the then-branch:
-    //    - Use ConditionUtils.strengthen(pre, condition) to combine the precondition with the condition of the if-statement.
-    //    - Use the appropriate rule (e.g., AssignmentRule, CompositionRule) to process the branch.
-    //
-    // 3. Generate VerificationConditions for the else-branch (if it exists):
-    //    - Use ConditionUtils.negate(condition) to negate the condition of the if-statement.
-    //    - Use ConditionUtils.strengthen(pre, negatedCondition) to combine the precondition with the negated condition.
-    //    - Use the appropriate rule to process the branch.
-    //
-    // 4. Combine the postconditions of both branches using ConditionUtils.weaken(post1, post2).
-    //    - Example: Combine the postconditions of the then-branch and the else-branch logically with "||".
-    //
-    // 5. Return a list of VerificationConditions for both branches.
-    //
-    // 6. Ensure proper handling of nested or complex conditionals by recursively applying the appropriate rules.
-}
 
+    public Collection<? extends VerificationCondition> apply(Statement statement, String pre, String post) {
+        if (!(statement instanceof Conditional)) {
+            throw new IllegalArgumentException("Statement must be of type Conditional.");
+        }
+
+        Conditional conditional = (Conditional) statement;
+        String condition = conditional.getCondition().toString(); // Convert condition to String
+        Statement thenBranch = conditional.getThenBranch();
+        Statement elseBranch = conditional.getElseBranch();
+
+        List<VerificationCondition> verifications = new ArrayList<>();
+
+        String thenPre = ConditionUtils.strengthen(pre, condition);
+        Collection<? extends VerificationCondition> thenVCs = processBranch(thenBranch, thenPre, post);
+        verifications.addAll(thenVCs);
+
+        if (elseBranch != null) {
+            String negatedCondition = ConditionUtils.negate(condition);
+            String elsePre = ConditionUtils.strengthen(pre, negatedCondition);
+            Collection<? extends VerificationCondition> elseVCs = processBranch(elseBranch, elsePre, post);
+            verifications.addAll(elseVCs);
+        }
+
+        return verifications;
+    }
+
+    private Collection<? extends VerificationCondition> processBranch(Statement branch, String pre, String post) {
+        if (branch instanceof Assignment) {
+            AssignmentRule assignmentRule = new AssignmentRule();
+            return assignmentRule.apply(branch, pre, post);
+        } else if (branch instanceof Conditional) {
+            ConditionalRule conditionalRule = new ConditionalRule();
+            return conditionalRule.apply(branch, pre, post);
+        } else if (branch instanceof Sequence) {
+            CompositionRule compositionRule = new CompositionRule();
+            return compositionRule.apply(branch, pre, post);
+        } else {
+            throw new UnsupportedOperationException(
+                "Unsupported statement type in branch: " + branch.getClass().getSimpleName()
+            );
+        }
+    }
+}
