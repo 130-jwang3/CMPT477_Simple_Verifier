@@ -42,7 +42,7 @@ public class ProofChecker {
     }
 
     // Helper method to parse a logical condition string into a Z3 BoolExpr
-    private static BoolExpr parseCondition(Context ctx, String condition) throws Exception 
+    private static BoolExpr parseCondition(Context ctx, String condition) throws Exception {
         if (condition.contains("&&") || condition.contains("||")) {
             String[] parts;
             if (condition.contains("&&")) {

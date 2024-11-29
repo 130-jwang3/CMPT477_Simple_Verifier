@@ -17,6 +17,15 @@
     </properties>
 
     <dependencies>
+        <!-- Updated z3 dependency -->
+        <dependency>
+            <groupId>com.microsoft.z3</groupId>
+            <artifactId>z3</artifactId>
+            <version>4.12.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/z3-4.12.6-x64-win/bin/com.microsoft.z3.jar</systemPath>
+        </dependency>
+
         <!-- ANTLR Runtime -->
         <dependency>
             <groupId>org.antlr</groupId>
@@ -61,20 +70,22 @@
                 </executions>
             </plugin>
 
-
+            <!-- JavaFX Plugin -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>com.verifier.Main</mainClass>
+                    <mainClass>com.verifier.ui.MainUI</mainClass>
                     <options>
                         <option>--add-opens</option>
                         <option>javafx.graphics/javafx.scene=ALL-UNNAMED</option>
+                        <option>-Djava.library.path=${project.basedir}/src/main/resources/z3-4.12.6-x64-win/bin</option>
                     </options>
                 </configuration>
             </plugin>
 
+            <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -88,7 +99,7 @@
                 </configuration>
             </plugin>
 
-
+            <!-- Clean Plugin -->
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.1.0</version>
