@@ -33,11 +33,11 @@ public class Simplifier {
 
     // Removes duplicate conditions from AND/OR clauses
     private static String removeDuplicates(String condition) {
-        if (condition.contains("&&")) {
-            Set<String> uniqueClauses = new LinkedHashSet<>(Arrays.asList(condition.split("&&")));
+        if (condition.contains(" && ")) {
+            Set<String> uniqueClauses = new LinkedHashSet<>(Arrays.asList(condition.split(" && ")));
             return String.join(" && ", uniqueClauses);
-        } else if (condition.contains("||")) {
-            Set<String> uniqueClauses = new LinkedHashSet<>(Arrays.asList(condition.split("\\|\\|")));
+        } else if (condition.contains(" || ")) {
+            Set<String> uniqueClauses = new LinkedHashSet<>(Arrays.asList(condition.split(" \\|\\| ")));
             return String.join(" || ", uniqueClauses);
         }
         return condition;
