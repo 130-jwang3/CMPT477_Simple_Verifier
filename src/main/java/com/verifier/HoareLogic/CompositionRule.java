@@ -8,7 +8,6 @@ import com.verifier.VCG.VerificationCondition;
 
 import java.util.List;
 import java.util.ArrayList;
-
 import java.util.Collection;
 
 public class CompositionRule {
@@ -25,22 +24,33 @@ public class CompositionRule {
         for (int i = statements.size() - 1; i >= 0; i--) {
             Statement currentStatement = statements.get(i);
 
+            Collection<? extends VerificationCondition> currentVCs;
             if (currentStatement instanceof Assignment) {
                 AssignmentRule assignmentRule = new AssignmentRule();
-                verificationConditions.addAll(
-                        assignmentRule.apply(currentStatement, "", currentPost)
-                );
+                currentVCs = assignmentRule.apply(currentStatement, pre, currentPost);
             } else if (currentStatement instanceof Conditional) {
                 ConditionalRule conditionalRule = new ConditionalRule();
-                verificationConditions.addAll(
-                        conditionalRule.apply(currentStatement, "", currentPost)
-                );
+                currentVCs = conditionalRule.apply(currentStatement, pre, currentPost);
             } else {
                 throw new UnsupportedOperationException(
                         "Unsupported statement type: " + currentStatement.getClass().getSimpleName()
                 );
             }
-            currentPost = ConditionUtils.simplify(verificationConditions.get(verificationConditions.size() - 1).getPrecondition());
+
+            for (VerificationCondition vc : currentVCs) {
+                // Set the derivedPrecondition as the actualPrecondition
+                verificationConditions.add(new VerificationCondition(
+                        vc.getPrecondition(),         // Derived precondition
+                        vc.getStatement(),            // Current statement
+                        vc.getPostcondition(),        // Postcondition
+                        vc.getPrecondition()          // Set actualPrecondition to derived precondition
+                ));
+            }
+
+            // Update currentPost to the derived precondition of the last VC
+            currentPost = ConditionUtils.simplify(
+                    verificationConditions.get(verificationConditions.size() - 1).getPrecondition()
+            );
         }
 
         return verificationConditions;

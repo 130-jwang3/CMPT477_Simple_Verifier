@@ -7,21 +7,14 @@
     <list default="true" id="8e87d8ba-09a2-4d65-8a7c-527e4722e0e0" name="Changes" comment="Created ProgramParser.java to import the library in Grammar.g4&#10;Updated Main, MainUI and README.md">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/AssignmentRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/AssignmentRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/CompositionRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/CompositionRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionalRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionalRule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/ProofChecker/ProofChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/ProofChecker/ProofChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/parser/generated/Grammar.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/parser/generated/Grammar.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/parser/generated/GrammarLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/parser/generated/GrammarLexer.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/verifier/HoareLogic/AssignmentRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/verifier/HoareLogic/AssignmentRule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/verifier/HoareLogic/CompositionRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/verifier/HoareLogic/CompositionRule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/verifier/HoareLogic/ConditionalRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/verifier/HoareLogic/ConditionalRule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/verifier/HoareLogic/HoareRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/verifier/HoareLogic/HoareRule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/verifier/ProofChecker/ProofChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/verifier/ProofChecker/ProofChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/verifier/ProofChecker/Simplifier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/verifier/ProofChecker/Simplifier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/verifier/VCG/VerificationConditionGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/verifier/VCG/VerificationConditionGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/verifier/Verifier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/verifier/Verifier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/verifier/ui/MainUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/verifier/ui/MainUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationConditionGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationConditionGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/Verifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Verifier.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +38,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="useMavenConfig" value="true" />
+        <option name="usePluginRegistry" value="true" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -72,9 +66,10 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "E:/Study/CMPT477/final_project/verifier/src/main/java/com/verifier/Main.java",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -112,7 +107,7 @@
       <updated>1731519544914</updated>
       <workItem from="1731519545956" duration="2414000" />
       <workItem from="1732774653885" duration="10982000" />
-      <workItem from="1732864767924" duration="737000" />
+      <workItem from="1732864767924" duration="32419000" />
     </task>
     <task id="LOCAL-00001" summary="update git ignore">
       <option name="closed" value="true" />

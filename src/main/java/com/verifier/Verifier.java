@@ -9,6 +9,7 @@ import com.verifier.parser.ProgramParser;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Verifier {
 
@@ -24,7 +25,6 @@ public class Verifier {
             if (parserAST.getBody() == null || parserAST.getPreconditions().isEmpty() || parserAST.getPostconditions().isEmpty()) {
                 return "Invalid program: Missing preconditions, body, or postconditions.";
             }
-
             // Step 3: Generate Verification Conditions
             VerificationConditionGenerator vcg = new VerificationConditionGenerator();
             List<VerificationCondition> vcs = vcg.generateVC(
@@ -46,6 +46,15 @@ public class Verifier {
             for (VerificationCondition vc : vcs) {
                 String simplifiedPre = Simplifier.simplify(vc.getPrecondition());
                 String simplifiedPost = Simplifier.simplify(vc.getPostcondition());
+
+                // Check precondition strengthening and postcondition weakening
+//                if (!PreconditionStrengtheningRule.isValid(preconditions, simplifiedPre)) {
+//                    return "Precondition strengthening failed for: " + vc.getStatement();
+//                }
+//                if (!PostconditionWeakeningRule.isValid(simplifiedPre, postconditions)) {
+//                    return "Postcondition weakening failed for statement: " + vc.getStatement();
+//                }
+
                 boolean isValid = ProofChecker.validate(vc);
                 allValid = allValid && isValid;
 
@@ -62,4 +71,5 @@ public class Verifier {
             return "Error verifying program: " + e.getMessage();
         }
     }
+
 }

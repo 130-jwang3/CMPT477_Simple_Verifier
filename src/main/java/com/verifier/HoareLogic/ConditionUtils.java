@@ -1,5 +1,7 @@
 package com.verifier.HoareLogic;
 
+import com.microsoft.z3.*;
+
 public class ConditionUtils {
 
     // TODO: Implement a method to strengthen conditions.

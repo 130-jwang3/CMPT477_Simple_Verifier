@@ -19,7 +19,8 @@ public class AssignmentRule {
         VerificationCondition vc = new VerificationCondition(
                 derivedPrecondition,           // Derived precondition
                 statement.toString(),          // The assignment statement as a string
-                post                           // The original postcondition
+                post,                          // The original postcondition
+                pre                            // The actual precondition for strengthening
         );
 
         return Collections.singleton(vc);

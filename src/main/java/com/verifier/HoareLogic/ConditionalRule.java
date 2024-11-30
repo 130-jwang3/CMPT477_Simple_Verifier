@@ -24,15 +24,31 @@ public class ConditionalRule {
 
         List<VerificationCondition> verifications = new ArrayList<>();
 
+        // THEN Branch
         String thenPre = ConditionUtils.strengthen(pre, condition);
         Collection<? extends VerificationCondition> thenVCs = processBranch(thenBranch, thenPre, post);
-        verifications.addAll(thenVCs);
+        for (VerificationCondition vc : thenVCs) {
+            verifications.add(new VerificationCondition(
+                    vc.getPrecondition(),
+                    vc.getStatement(),
+                    vc.getPostcondition(),
+                    thenPre  // Store strengthened THEN precondition
+            ));
+        }
 
+        // ELSE Branch (if it exists)
         if (elseBranch != null) {
             String negatedCondition = ConditionUtils.negate(condition);
             String elsePre = ConditionUtils.strengthen(pre, negatedCondition);
             Collection<? extends VerificationCondition> elseVCs = processBranch(elseBranch, elsePre, post);
-            verifications.addAll(elseVCs);
+            for (VerificationCondition vc : elseVCs) {
+                verifications.add(new VerificationCondition(
+                        vc.getPrecondition(),
+                        vc.getStatement(),
+                        vc.getPostcondition(),
+                        elsePre  // Store strengthened ELSE precondition
+                ));
+            }
         }
 
         return verifications;
@@ -50,7 +66,7 @@ public class ConditionalRule {
             return compositionRule.apply(branch, pre, post);
         } else {
             throw new UnsupportedOperationException(
-                "Unsupported statement type in branch: " + branch.getClass().getSimpleName()
+                    "Unsupported statement type in branch: " + branch.getClass().getSimpleName()
             );
         }
     }
