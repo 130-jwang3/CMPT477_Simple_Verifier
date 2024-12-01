@@ -27,12 +27,11 @@ public class ConditionalRule {
         String thenPre = ConditionUtils.strengthen(pre, condition);
         Collection<? extends VerificationCondition> thenVCs = processBranch(thenBranch, thenPre, post);
         for (VerificationCondition vc : thenVCs) {
-            String strengthenedPre = ConditionUtils.strengthen(thenPre, vc.getPrecondition());
             verifications.add(new VerificationCondition(
                     vc.getPrecondition(),
-                    vc.getStatement(),
+                    "THEN: " + vc.getStatement(), // Cleaner representation for THEN branch
                     vc.getPostcondition(),
-                    strengthenedPre  // Store strengthened actualPrecondition
+                    thenPre  // Actual precondition for THEN branch
             ));
         }
 
@@ -42,15 +41,28 @@ public class ConditionalRule {
             String elsePre = ConditionUtils.strengthen(pre, negatedCondition);
             Collection<? extends VerificationCondition> elseVCs = processBranch(elseBranch, elsePre, post);
             for (VerificationCondition vc : elseVCs) {
-                String strengthenedPre = ConditionUtils.strengthen(elsePre, vc.getPrecondition());
                 verifications.add(new VerificationCondition(
                         vc.getPrecondition(),
-                        vc.getStatement(),
+                        "ELSE: " + vc.getStatement(), // Cleaner representation for ELSE branch
                         vc.getPostcondition(),
-                        strengthenedPre  // Store strengthened actualPrecondition
+                        elsePre  // Actual precondition for ELSE branch
                 ));
             }
         }
+
+        // Combine THEN and ELSE branches
+        String combinedPre = ConditionUtils.disjunction(
+                ConditionUtils.strengthen(pre, condition),
+                ConditionUtils.strengthen(pre, ConditionUtils.negate(condition))
+        );
+
+        // Add an overall verification condition for the combined result
+        verifications.add(new VerificationCondition(
+                combinedPre, // Combined precondition
+                "IF: " + condition, // Cleaner representation for the entire conditional
+                post,        // Global postcondition
+                pre          // Global actual precondition
+        ));
 
         return verifications;
     }
@@ -72,4 +84,3 @@ public class ConditionalRule {
         }
     }
 }
-

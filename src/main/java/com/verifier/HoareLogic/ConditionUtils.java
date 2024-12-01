@@ -84,4 +84,10 @@ public class ConditionUtils {
         // Use regex to match full variable occurrences
         return condition.replaceAll("\\b" + variable + "\\b", "(" + expression + ")");
     }
+
+    public static String disjunction(String condition1, String condition2) {
+        if (condition1 == null || condition1.isEmpty()) return condition2;
+        if (condition2 == null || condition2.isEmpty()) return condition1;
+        return "(" + condition1 + ") || (" + condition2 + ")";
+    }
 }
