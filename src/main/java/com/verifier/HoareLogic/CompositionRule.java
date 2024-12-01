@@ -19,8 +19,9 @@ public class CompositionRule {
         Sequence sequence = (Sequence) statement;
         List<Statement> statements = sequence.getStatements();
         List<VerificationCondition> verificationConditions = new ArrayList<>();
-        String currentPost = post;
+        String currentPost = post; // Start with the global postcondition
 
+        // Process statements in reverse order
         for (int i = statements.size() - 1; i >= 0; i--) {
             Statement currentStatement = statements.get(i);
 
@@ -31,26 +32,31 @@ public class CompositionRule {
             } else if (currentStatement instanceof Conditional) {
                 ConditionalRule conditionalRule = new ConditionalRule();
                 currentVCs = conditionalRule.apply(currentStatement, pre, currentPost);
+            } else if (currentStatement instanceof Sequence) {
+                CompositionRule compositionRule = new CompositionRule();
+                currentVCs = compositionRule.apply(currentStatement, pre, currentPost);
             } else {
                 throw new UnsupportedOperationException(
                         "Unsupported statement type: " + currentStatement.getClass().getSimpleName()
                 );
             }
 
+            VerificationCondition lastVC = null;
             for (VerificationCondition vc : currentVCs) {
-                // Set the derivedPrecondition as the actualPrecondition
+                String actualPre = (i == 0) ? pre : vc.getPrecondition(); // Set actual pre for the first statement
                 verificationConditions.add(new VerificationCondition(
-                        vc.getPrecondition(),         // Derived precondition
-                        vc.getStatement(),            // Current statement
-                        vc.getPostcondition(),        // Postcondition
-                        vc.getPrecondition()          // Set actualPrecondition to derived precondition
+                        vc.getPrecondition(),       // Derived precondition
+                        vc.getStatement(),          // Statement itself
+                        currentPost,                // Postcondition for this statement
+                        actualPre                   // Set actual precondition
                 ));
+                lastVC = vc;
             }
 
             // Update currentPost to the derived precondition of the last VC
-            currentPost = ConditionUtils.simplify(
-                    verificationConditions.get(verificationConditions.size() - 1).getPrecondition()
-            );
+            if (lastVC != null) {
+                currentPost = lastVC.getPrecondition();
+            }
         }
 
         return verificationConditions;

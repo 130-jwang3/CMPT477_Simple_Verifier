@@ -1,7 +1,5 @@
 package com.verifier.HoareLogic;
 
-import com.microsoft.z3.*;
-
 public class ConditionUtils {
 
     // TODO: Implement a method to strengthen conditions.
@@ -82,6 +80,8 @@ public class ConditionUtils {
         if (expression == null) {
             expression = "";
         }
-        return condition.replace(variable, "(" + expression + ")");
+
+        // Use regex to match full variable occurrences
+        return condition.replaceAll("\\b" + variable + "\\b", "(" + expression + ")");
     }
 }

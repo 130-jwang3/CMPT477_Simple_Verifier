@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e87d8ba-09a2-4d65-8a7c-527e4722e0e0" name="Changes" comment="Created ProgramParser.java to import the library in Grammar.g4&#10;Updated Main, MainUI and README.md">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/AssignmentRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/AssignmentRule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/CompositionRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/CompositionRule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionalRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionalRule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/ProofChecker/ProofChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/ProofChecker/ProofChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationConditionGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/VCG/VerificationConditionGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/Verifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/Verifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/verifier/ProofChecker/Simplifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/verifier/ProofChecker/Simplifier.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +103,7 @@
       <updated>1731519544914</updated>
       <workItem from="1731519545956" duration="2414000" />
       <workItem from="1732774653885" duration="10982000" />
-      <workItem from="1732864767924" duration="32419000" />
+      <workItem from="1732864767924" duration="46103000" />
     </task>
     <task id="LOCAL-00001" summary="update git ignore">
       <option name="closed" value="true" />
@@ -146,5 +142,16 @@
     <MESSAGE value="update git ignore" />
     <MESSAGE value="Created ProgramParser.java to import the library in Grammar.g4&#10;Updated Main, MainUI and README.md" />
     <option name="LAST_COMMIT_MESSAGE" value="Created ProgramParser.java to import the library in Grammar.g4&#10;Updated Main, MainUI and README.md" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/verifier/HoareLogic/ConditionUtils.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -11,7 +11,6 @@ import java.util.Collection;
 import java.util.List;
 
 public class ConditionalRule {
-
     public Collection<? extends VerificationCondition> apply(Statement statement, String pre, String post) {
         if (!(statement instanceof Conditional)) {
             throw new IllegalArgumentException("Statement must be of type Conditional.");
@@ -28,11 +27,12 @@ public class ConditionalRule {
         String thenPre = ConditionUtils.strengthen(pre, condition);
         Collection<? extends VerificationCondition> thenVCs = processBranch(thenBranch, thenPre, post);
         for (VerificationCondition vc : thenVCs) {
+            String strengthenedPre = ConditionUtils.strengthen(thenPre, vc.getPrecondition());
             verifications.add(new VerificationCondition(
                     vc.getPrecondition(),
                     vc.getStatement(),
                     vc.getPostcondition(),
-                    thenPre  // Store strengthened THEN precondition
+                    strengthenedPre  // Store strengthened actualPrecondition
             ));
         }
 
@@ -42,11 +42,12 @@ public class ConditionalRule {
             String elsePre = ConditionUtils.strengthen(pre, negatedCondition);
             Collection<? extends VerificationCondition> elseVCs = processBranch(elseBranch, elsePre, post);
             for (VerificationCondition vc : elseVCs) {
+                String strengthenedPre = ConditionUtils.strengthen(elsePre, vc.getPrecondition());
                 verifications.add(new VerificationCondition(
                         vc.getPrecondition(),
                         vc.getStatement(),
                         vc.getPostcondition(),
-                        elsePre  // Store strengthened ELSE precondition
+                        strengthenedPre  // Store strengthened actualPrecondition
                 ));
             }
         }
@@ -71,3 +72,4 @@ public class ConditionalRule {
         }
     }
 }
+

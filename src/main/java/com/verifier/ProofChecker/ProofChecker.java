@@ -1,5 +1,6 @@
 package com.verifier.ProofChecker;
 
+import com.verifier.HoareLogic.ConditionUtils;
 import com.verifier.VCG.VerificationCondition;
 import com.microsoft.z3.*;
 
@@ -7,66 +8,52 @@ public class ProofChecker {
 
     // Validates a single verification condition
     public static boolean validate(VerificationCondition vc) {
-
-        System.out.println("original: "+vc.getPrecondition()+":"+vc.getPostcondition()+":"+vc.getActualPrecondition());
         String pre = Simplifier.simplify(vc.getPrecondition());
         String post = Simplifier.simplify(vc.getPostcondition());
         String actualPre = Simplifier.simplify(vc.getActualPrecondition());
-        String statement = vc.getStatement();
-        System.out.println("simplified: "+pre+":"+post+":"+actualPre);
 
-        if (pre == null || post == null || pre.isEmpty() || post.isEmpty()) {
-            System.out.println("Validation failed: Precondition or postcondition is empty.");
+        System.out.println("Checking implication: pre = " + actualPre + ", post = " + pre);
+        if (!implies(actualPre, pre)) {
+            System.out.println("Validation failed: Actual precondition does not imply derived precondition.");
             return false;
         }
 
-        // Use an SMT solver to validate
-        return implies(actualPre, pre);
+        System.out.println("Validation passed for: " + vc.getStatement());
+        return true;
     }
+
+
 
     // Checks if precondition implies postcondition using Z3 SMT solver
     private static boolean implies(String pre, String post) {
         try (Context ctx = new Context()) {
             Solver solver = ctx.mkSolver();
-            System.out.println("pre: " + pre);
-            System.out.println("post: " + post);
+            System.out.println("Checking implication: pre = " + pre + ", post = " + post);
+
             // Parse precondition and postcondition as logical expressions
             BoolExpr preExpr = parseCondition(ctx, pre);
             BoolExpr postExpr = parseCondition(ctx, post);
-            System.out.println("Simplified pre: " + preExpr.toString());
-            System.out.println("Simplified post: " + postExpr.toString());
 
+            System.out.println("Parsed Pre: " + preExpr);
+            System.out.println("Parsed Post: " + postExpr);
 
-            // Check if precondition implies postcondition
+            // Create implication: pre → post
             BoolExpr implication = ctx.mkImplies(preExpr, postExpr);
-            System.out.println("Simplified Implication: " + implication.simplify());
-//            validateSolver();
-            solver.add(ctx.mkNot(implication)); // Negate the implication to check for unsatisfiability
-//            System.out.println("SMT Solver Status: " + solver.check());
-            // If the negation is unsatisfiable, implication holds
-            return solver.check() == Status.UNSATISFIABLE;
+
+            // Negate the implication to check for unsatisfiability
+            solver.add(ctx.mkNot(implication));
+            Status status = solver.check();
+
+            System.out.println("SMT Solver Status: " + status);
+            return status == Status.UNSATISFIABLE; // UNSATISFIABLE means the implication holds
         } catch (Exception e) {
             System.err.println("SMT Solver Error: " + e.getMessage());
             return false;
         }
     }
 
-//    private static void validateSolver(){
-//        try (Context ctx = new Context()) {
-//            BoolExpr pre = ctx.mkEq(ctx.mkIntConst("x"), ctx.mkInt(2)); // x > 0
-//            BoolExpr post = ctx.mkEq(ctx.mkIntConst("x"), ctx.mkIntConst("y")); // 5 > 4
-//            BoolExpr implication = ctx.mkImplies(post, pre);
-//
-//            Solver solver = ctx.mkSolver();
-//            solver.add(ctx.mkNot(implication)); // Negate the implication
-//            System.out.println();
-//            System.out.println("SMT Solver Status: " + solver.check());
-//        }
-//    }
-
     // Helper method to parse a logical condition string into a Z3 BoolExpr
     private static BoolExpr parseCondition(Context ctx, String condition) throws Exception {
-        // Normalize the condition to ensure spaces around operators
         condition = normalizeCondition(condition);
 
         // Handle conjunction (&&) and disjunction (||)
@@ -74,24 +61,28 @@ public class ProofChecker {
             String[] parts;
             if (condition.contains("&&")) {
                 parts = condition.split("&&");
-                BoolExpr left = parseCondition(ctx, parts[0].trim());
-                BoolExpr right = parseCondition(ctx, parts[1].trim());
-                return ctx.mkAnd(left, right);
+                return ctx.mkAnd(parseCondition(ctx, parts[0].trim()), parseCondition(ctx, parts[1].trim()));
             } else if (condition.contains("||")) {
                 parts = condition.split("\\|\\|");
-                BoolExpr left = parseCondition(ctx, parts[0].trim());
-                BoolExpr right = parseCondition(ctx, parts[1].trim());
-                return ctx.mkOr(left, right);
+                return ctx.mkOr(parseCondition(ctx, parts[0].trim()), parseCondition(ctx, parts[1].trim()));
             }
         }
 
+        // Handle negation
         if (condition.startsWith("!")) {
-            String negatedPart = condition.substring(1).trim();
-            BoolExpr negatedExpr = parseCondition(ctx, negatedPart);
-            return ctx.mkNot(negatedExpr);
+            return ctx.mkNot(parseCondition(ctx, condition.substring(1).trim()));
         }
 
-        // Handle relational operators
+        // Handle multi-character relational operators first
+        if (condition.contains(">=")) {
+            String[] parts = condition.split(">=");
+            return ctx.mkGe(parseExpression(ctx, parts[0].trim()), parseExpression(ctx, parts[1].trim()));
+        } else if (condition.contains("<=")) {
+            String[] parts = condition.split("<=");
+            return ctx.mkLe(parseExpression(ctx, parts[0].trim()), parseExpression(ctx, parts[1].trim()));
+        }
+
+        // Handle single-character relational operators
         if (condition.contains(">")) {
             String[] parts = condition.split(">");
             return ctx.mkGt(parseExpression(ctx, parts[0].trim()), parseExpression(ctx, parts[1].trim()));
@@ -142,18 +133,19 @@ public class ProofChecker {
 
     // Helper method to normalize conditions
     private static String normalizeCondition(String condition) {
-        // Add spaces around operators for proper splitting
-        return condition.replaceAll("\\+", " + ")
-                .replaceAll("-", " - ")
-                .replaceAll("\\*", " * ")
-                .replaceAll("/", " / ")
+        return condition.replaceAll("\\+", "+ ") // Ensure spacing around arithmetic operators
+                .replaceAll("-", "- ")
+                .replaceAll("\\*", "* ")
+                .replaceAll("/", "/ ")
+                .replaceAll(">=", " >= ") // Relational operators
+                .replaceAll("<=", " <= ")
                 .replaceAll(">", " > ")
                 .replaceAll("<", " < ")
                 .replaceAll("==", " == ")
                 .replaceAll("!=", " != ")
-                .replaceAll("\\(", " ( ")
+                .replaceAll("\\(", " ( ") // Parentheses
                 .replaceAll("\\)", " ) ")
-                .replaceAll("\\s+", " ")
-                .trim();
+                .replaceAll("\\s+", " ") // Collapse multiple spaces into one
+                .trim(); // Remove leading and trailing spaces
     }
 }

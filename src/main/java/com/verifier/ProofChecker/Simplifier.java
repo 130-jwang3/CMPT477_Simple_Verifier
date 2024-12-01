@@ -16,7 +16,7 @@ public class Simplifier {
         condition = normalize(condition); // Normalize the condition (remove unnecessary spaces)
         condition = simplifyTrivial(condition);
         condition = removeDuplicates(condition);
-        condition = recursivelyNegationExpressions(condition);
+//        condition = recursivelyNegationExpressions(condition);
         condition = recursivelySimplifyNestedExpressions(condition); // Simplify nested expression
         condition = simplifyExpression(condition);
         condition = removeExtraParenthesesForValues(condition); // Remove redundant parentheses
