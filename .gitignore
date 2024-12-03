@@ -31,4 +31,4 @@ bin/
 
 .idea/
 
-src/main/resources/z3-4.12.6-x64-win
+#src/main/resources/z3-4.12.6-x64-win
