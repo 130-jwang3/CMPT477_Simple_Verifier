@@ -68,8 +68,8 @@ We tested the verifier with both successful and unsuccessful programs.
 4. [Hoare Logic Prover Design](https://daltron.de/posts/hoare-prover/)
 5. [JavaFX Dependency Issues](https://www.reddit.com/r/JavaFX/comments/suxkun/javafx_issue_with_library_dependency/)
 
-![Figure 1: Successful Verification](images/figure1.png)
-![Figure 2: Failed Verification](images/figure2.png)
+![Figure 1: Successful Verification](src/main/resources/images/figure1.png)
+![Figure 2: Failed Verification](src/main/resources/images/figure2.png)
 
 
 
